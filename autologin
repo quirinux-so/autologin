@@ -1,0 +1,51 @@
+#!/bin/bash
+# -*- ENCODING: UTF-8 -*-
+
+#######################################################################
+#                                                                     #
+# No-Autologin v.1.2                                                  #
+# Script que configura autologin para usuario actual en Lightdm       #
+#                                                                     #
+#######################################################################
+#                                                                     #
+#                                                                     #
+# Modo de uso:                                                        #
+#                                                                     #
+# 1) Otorgar permisos chmod 777 a /etc/slim.conf                      #
+# 2) Otorgar permisos de ejecución al script.                         #
+# 3) Ejecutar con sudo ./autologin-slim.sh                            #
+#                                                                     #
+# Este código viene incluido en el Sistema Operativo Quirinux.        #
+# www.quirinux.org                                                    #
+#                                                                     #
+# Fue programado por Charlie Martínez en Noviembre de 2019.           #
+# www.charliemartinez.com.ar                                          #
+# contacto@charliemartinez.com.ar                                     #
+#                                                                     #
+# Compartido bajo licencia GPLv3:                                     #
+#                                                                     #
+# Usted puede usar, modificar, copiar, compartir, redistribuir        #
+# este software, siempre y cuando respete los créditos del autor.     #
+#                                                                     #
+#######################################################################
+
+# Activa el autologin:
+
+FILE="/opt/login.bk/lightdm.conf"
+
+if [ -f "$FILE" ]; then
+
+sudo cp /opt/login.bk/lightdm.conf /etc/lightdm/lightdm.conf
+sudo sed -i "126i autologin-user=$USER" /etc/lightdm/lightdm.conf
+sudo sed -i "127i autologin-user-timeout=0" /etc/lightdm/lightdm.conf
+
+else
+
+sudo mkdir -p /opt/login.bk
+sudo sed -i "126i autologin-user=$USER" /etc/lightdm/lightdm.conf
+sudo sed -i "127i autologin-user-timeout=0" /etc/lightdm/lightdm.conf
+
+fi
+
+
+

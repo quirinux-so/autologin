@@ -1,0 +1,38 @@
+#!/bin/bash
+# -*- ENCODING: UTF-8 -*-
+
+#######################################################################
+#                                                                     #
+# No-Autologin v.1.2                                                  #
+# Script que desactiva el login automático en Lightdm                 #
+# -Sólo funciona si antes fue activado con autologin v.1.2            #
+#                                                                     #
+#######################################################################
+#                                                                     #
+#                                                                     #
+# Modo de uso:                                                        #
+#                                                                     #
+# 1) Otorgar permisos chmod 777 a /etc/slim.conf                      #
+# 2) Otorgar permisos de ejecución al script.                         #
+# 3) Ejecutar con sudo ./autologin-slim.sh                            #
+#                                                                     #
+# Este código viene incluido en el Sistema Operativo Quirinux.        #
+# www.quirinux.org                                                    #
+#                                                                     #
+# Fue programado por Charlie Martínez en Noviembre de 2019.           #
+# www.charliemartinez.com.ar                                          #
+# contacto@charliemartinez.com.ar                                     #
+#                                                                     #
+# Compartido bajo licencia GPLv3:                                     #
+#                                                                     #
+# Usted puede usar, modificar, copiar, compartir, redistribuir        #
+# este software, siempre y cuando respete los créditos del autor.     #
+#                                                                     #
+#######################################################################
+
+# Desactiva el autologin:
+
+sudo cp /opt/login.bk/lightdm.conf /etc/lightdm/lightdm.conf 
+
+
+
